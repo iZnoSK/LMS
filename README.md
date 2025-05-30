@@ -86,7 +86,7 @@ http://localhost:8080/swagger-ui/index.html
 
 ---
 
-Po spustení aplikácie je možné testovať API endpointy zo zadania na predpripravených dátach (20 kníh, 40 knižných kópií). 
+Po spustení aplikácie je možné testovať API endpointy zo zadania (napr. stránkovanie a zoraďovanie) na predpripravených dátach (20 kníh, 40 knižných kópií). 
 
 ---
 
