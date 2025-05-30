@@ -91,8 +91,12 @@ public class BookController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Book created",
                     content = @Content(schema = @Schema(implementation = BookResponse.class))),
-            @ApiResponse(responseCode = "400", description = "Validation error", content = @Content),
-            @ApiResponse(responseCode = "409", description = "Duplicate title or ISBN", content = @Content)
+            @ApiResponse(responseCode = "400", description = "Validation error",
+                    content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = ExceptionControllerAdvice.ErrorResponse.class))),
+            @ApiResponse(responseCode = "409", description = "Duplicate title or ISBN",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ExceptionControllerAdvice.ErrorResponse.class)))
     })
     @PostMapping
     public ResponseEntity<BookResponse> addBook(@Valid @RequestBody BookCreateRequest bookCreateRequest) {

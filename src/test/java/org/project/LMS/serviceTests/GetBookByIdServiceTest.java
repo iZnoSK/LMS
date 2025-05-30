@@ -28,7 +28,7 @@ public class GetBookByIdServiceTest {
 
     @DisplayName("Test if method getBookById returns book, when book exists")
     @Test
-    public void returnBook_whenBookExists() {
+    public void getBook_whenBookExists() {
         Long bookId = 1L;
         Book book_created = new Book(bookId, "Spring in Action",
                 "Craig Walls", "978-1617294945", 2018);
@@ -36,6 +36,8 @@ public class GetBookByIdServiceTest {
         given(bookRepository.findById(bookId)).willReturn(Optional.of(book_created));
 
         Book book_resultOfMethod = bookService.getBookById(bookId);
+
+        assertNotNull(book_resultOfMethod);
         assertEquals(book_created, book_resultOfMethod);
     }
 

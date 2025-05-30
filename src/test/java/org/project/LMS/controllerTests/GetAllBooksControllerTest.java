@@ -35,31 +35,25 @@ public class GetAllBooksControllerTest {
     @DisplayName("Test if GET /api/books returns paginated and sorted books")
     @Test
     public void returnBooksPage_whenBooksExist() throws Exception {
-        // Vstupné parametre
         int page = 0;
         int size = 2;
         String sortBy = "title";
         String direction = "asc";
 
-        // Vstupný Pageable
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy).ascending());
 
-        // Príprava dát: 2 knihy
         Book book1 = new Book(1L, "Spring in Action", "Craig Walls", "978-1617294945", 2018);
         Book book2 = new Book(2L, "Clean Code", "Robert C. Martin", "978-0132350884", 2008);
         List<Book> books = List.of(book1, book2);
         Page<Book> bookPage = new PageImpl<>(books, pageable, books.size());
 
-        // Očakávané DTO odpovede
         BookResponse bookResponse1 = new BookResponse(1L, "Spring in Action", "Craig Walls", "978-1617294945", 2018);
         BookResponse bookResponse2 = new BookResponse(2L, "Clean Code", "Robert C. Martin", "978-0132350884", 2008);
 
-        // Mock správanie
         given(bookService.getAllBooks(pageable)).willReturn(bookPage);
         given(bookMapper.toResponse(book1)).willReturn(bookResponse1);
         given(bookMapper.toResponse(book2)).willReturn(bookResponse2);
 
-        // Volanie API a overenie výstupu
         mockMvc.perform(get("/api/books")
                         .param("page", String.valueOf(page))
                         .param("size", String.valueOf(size))

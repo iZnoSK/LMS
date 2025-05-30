@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 import org.project.LMS.dto.bookCopy.BookCopyAvailability;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/books/{id}/copies")
+@Tag(name = "BookCopies", description = "Operations related to book copies")
 public class BookCopyController {
     private final BookCopyService bookCopyService;
     private final BookCopyMapper bookCopyMapper;

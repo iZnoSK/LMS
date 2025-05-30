@@ -61,9 +61,9 @@ public class GetBookByIdControllerTest {
                 .andExpect(jsonPath("$.copies").isEmpty());
     }
 
-    @DisplayName("Test if HTTP request getBookById throws exception, when book does not exist")
+    @DisplayName("Test if GET /api/books/1 throws exception, when book does not exist")
     @Test
-    public void getBookById_ShouldReturn404_WhenNotFound() throws Exception {
+    public void getBookById_WhenNotFound() throws Exception {
         given(bookService.getBookById(anyLong()))
                 .willThrow(new ResourceNotFoundException("Book with id 1 not found."));
 

@@ -57,6 +57,7 @@ public class BookService {
 
     public void deleteBook(Long bookId) {
         Book book = getBookOrThrow(bookId);
+        this.bookCopyRepository.deleteAll(this.bookCopyRepository.findByBook(book));
         this.bookRepository.delete(book);
     }
 
