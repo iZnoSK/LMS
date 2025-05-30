@@ -81,6 +81,7 @@ Ak máš zapnutý Swagger/OpenAPI, dokumentáciu API je možné nájsť tu:
 ```
 http://localhost:8080/swagger-ui/index.html
 ```
+![Snímka obrazovky 2025-05-30 022656](https://github.com/user-attachments/assets/db0648a0-1dc4-41f9-a7d7-d0f1cee5393e)
 
 ---
 
