@@ -1,6 +1,6 @@
 # 📚 Simple Library Management System
 
-Toto je jednoduchá webová aplikácia vytvorená pomocou Spring Boot, ktorá umožňuje spravovať knihy a ich kópie.
+Jednoduchá webová aplikácia vytvorená pomocou Spring Boot, ktorá umožňuje spravovať knihy a ich kópie.
 
 ---
 
